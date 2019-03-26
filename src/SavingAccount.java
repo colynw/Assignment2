@@ -2,8 +2,8 @@
 public class SavingAccount extends Account {
 	private double rate;
 	
-	SavingAccount(double rate) {
-		super();
+	SavingAccount(String name, char type, double blance, double rate) {
+		super(name,type,blance);
 		this.rate = rate;
 	}
 	
