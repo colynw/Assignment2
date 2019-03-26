@@ -6,22 +6,21 @@ public class UseSavingBankAccount {
 	public static void initAccounts() {
 		account_arr = new SavingAccount[50];
 		for (int i=0;i<50;i++) {
-			account_arr[i] = new SavingAccount("TTU"+(i+1),'C',0.0,5.0);
+			account_arr[i] = new SavingAccount((i+1),"TTU"+(i+1),'C',0.0,5.0);
 		}
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JFrame jf = new JFrame("Assignment 2");
-        jf.setSize(200, 200);
-        jf.setLocationRelativeTo(null);
-        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JPanel panel = new JPanel();
 
         JRadioButton radioBtn01 = new JRadioButton("one");
         JRadioButton radioBtn02 = new JRadioButton("two");
         JRadioButton radioBtn03 = new JRadioButton("three");
+        
+        JTextField tf1 = new JTextField();
+        JTextField tf2 = new JTextField();
+        JTextField tf3 = new JTextField();
 
         ButtonGroup btnGroup = new ButtonGroup();
         btnGroup.add(radioBtn01);
@@ -30,12 +29,35 @@ public class UseSavingBankAccount {
 
         radioBtn01.setSelected(true);
 
-        panel.add(radioBtn01);
-        panel.add(radioBtn02);
-        panel.add(radioBtn03);
-
-        jf.setContentPane(panel);
+//        panel.add(radioBtn01);
+//        panel.add(radioBtn02);
+//        panel.add(radioBtn03);
+        
+        JButton btn = new JButton("Submit");
+        
+        Box hBox01 = Box.createHorizontalBox();
+        hBox01.add(radioBtn01);
+        hBox01.add(tf1);
+        
+        Box hBox02 = Box.createHorizontalBox();
+        hBox02.add(radioBtn02);
+        hBox02.add(tf2);
+        
+        Box hBox03 = Box.createHorizontalBox();
+        hBox03.add(radioBtn03);
+        hBox03.add(tf3);
+        
+        Box vBox = Box.createVerticalBox();
+        vBox.add(hBox01);
+        vBox.add(hBox02);
+        vBox.add(hBox03);
+        vBox.add(btn);
+        
+        
+        jf.setContentPane(vBox);
+        jf.pack();
         jf.setVisible(true);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

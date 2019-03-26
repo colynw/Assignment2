@@ -1,5 +1,6 @@
 
 public class Account {
+	private int id;
 	private String strName;
 	private char accountType;
 	private double blance;
@@ -34,7 +35,8 @@ public class Account {
 		this.blance = 0.0;
 	}
 	
-	Account(String name, char type, double blance) {
+	Account(int id, String name, char type, double blance) {
+		this.id = id;
 		this.strName = name;
 		this.accountType = type;
 		this.blance = blance;
