@@ -28,10 +28,6 @@ public class UseSavingBankAccount {
         btnGroup.add(radioBtn03);
 
         radioBtn01.setSelected(true);
-
-//        panel.add(radioBtn01);
-//        panel.add(radioBtn02);
-//        panel.add(radioBtn03);
         
         JButton btn = new JButton("Submit");
         
