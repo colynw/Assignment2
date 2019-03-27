@@ -1,6 +1,5 @@
-import javax.swing.*;
 
-public class UseSavingBankAccount {
+public class UseSavingBankAccount{
 	public static SavingAccount account_arr[];
 	
 	public static void initAccounts() {
@@ -12,6 +11,7 @@ public class UseSavingBankAccount {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		JFrame jf = new JFrame("Assignment 2");
 
         JRadioButton radioBtn01 = new JRadioButton("one");
@@ -54,6 +54,9 @@ public class UseSavingBankAccount {
         jf.pack();
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+		initAccounts();
+		GUI gui = new GUI();
+>>>>>>> 09e93470cec574fe0a29a4060c7e8e5d466e7781
 	}
-
 }

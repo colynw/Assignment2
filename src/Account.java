@@ -3,7 +3,7 @@ public class Account {
 	private int id;
 	private String strName;
 	private char accountType;
-	private double blance;
+	private double balance;
 	
 	public void setName(String name) {
 		this.strName = name;
@@ -21,25 +21,25 @@ public class Account {
 		return this.accountType;
 	}
 	
-	public void setBlance(double blance) {
-		this.blance = blance;
+	public void setBalance(double blance) {
+		this.balance = blance;
 	}
 	
-	public double getBlance() {
-		return this.blance;
+	public double getBalance() {
+		return this.balance;
 	}
 	
 	Account() {
 		this.strName = "TTU1";
 		this.accountType = 'C';
-		this.blance = 0.0;
+		this.balance = 0.0;
 	}
 	
 	Account(int id, String name, char type, double blance) {
 		this.id = id;
 		this.strName = name;
 		this.accountType = type;
-		this.blance = blance;
+		this.balance = blance;
 	}
 	
 	public void debit(double amount) {
