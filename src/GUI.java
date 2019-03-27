@@ -1,5 +1,8 @@
 import java.awt.FlowLayout;
 import java.awt.event.*;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,14 +89,40 @@ public class GUI extends JFrame{
 	
 	private void deleteByID() {
 		if(isNumeric(tf1.getText())) {
-			
+			int id = Integer.parseInt(tf1.getText());
+			int tem_idx = -1;
+			for(int i=0;i<UseSavingBankAccount.account_arr.length;i++) {
+				if(UseSavingBankAccount.account_arr[i].getID() == id) {
+					tem_idx = i;
+					break;
+				}
+			}
+			if(tem_idx != -1) {
+				delByIndex(tem_idx);
+				Account.displayAll(UseSavingBankAccount.account_arr);
+			}else {
+				JOptionPane.showMessageDialog(null, "Delete failed.");
+			}
 		}else {
 			JOptionPane.showMessageDialog(null, "Please input ID, it should be a number.");
 		}
 	}
 	
 	private void deleteByName() {
-		
+		String name = tf2.getText();
+		int tem_idx = -1;
+		for(int i=0;i<UseSavingBankAccount.account_arr.length;i++) {
+			if(UseSavingBankAccount.account_arr[i].getName().equalsIgnoreCase(name)) {
+				tem_idx = i;
+				break;
+			}
+		}
+		if(tem_idx != -1) {
+			delByIndex(tem_idx);
+			Account.displayAll(UseSavingBankAccount.account_arr);
+		}else {
+			JOptionPane.showMessageDialog(null, "Delete failed.");
+		}
 	}
 	
 	private void displayAll(SavingAccount[] arr) {
@@ -107,5 +136,17 @@ public class GUI extends JFrame{
             return false;
         }
         return true;
+	}
+	
+	public boolean delByIndex(int index) {
+		int len = UseSavingBankAccount.account_arr.length;
+		if(index<0||index>len-1) {
+			return false;
+		}
+		for(int i=index;i<len-1;i++) {
+			UseSavingBankAccount.account_arr[i] = UseSavingBankAccount.account_arr[i+1];
+		}
+		UseSavingBankAccount.account_arr = Arrays.copyOf(UseSavingBankAccount.account_arr, len-1);
+		return true;
 	}
 }

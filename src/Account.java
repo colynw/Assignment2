@@ -6,6 +6,14 @@ public class Account {
 	private char accountType;
 	private double balance;
 	
+	public void setID(int id) {
+		this.id = id;
+	}
+	
+	public int getID() {
+		return this.id;
+	}
+	
 	public void setName(String name) {
 		this.strName = name;
 	}
@@ -45,22 +53,26 @@ public class Account {
 	
 	//withdraw
 	public void debit(double amount) {
-		
+		if(balance >= amount) {
+			balance-=amount;
+		}else {
+			JOptionPane.showMessageDialog(null, "Insufficient balance.");
+		}
 	}
 	
 	//deposit
 	public void credit(double amount) {
-		
+		balance+=amount;
 	}
 	
 	public void displayBalance() {
-		
+		JOptionPane.showMessageDialog(null, "The balance is "+balance);
 	}
 	
 	public static void displayAll(Account[] arr) {
 		String str = "";
 		for (int i=0;i<arr.length;i++) {
-			str += arr[i].getName() + " " +arr[i].getAccountType() + " " +arr[i].getBalance() + "\n";
+			str += arr[i].getID() + " " + arr[i].getName() + " " +arr[i].getAccountType() + " " +arr[i].getBalance() + "\n";
 		}
 		JOptionPane.showMessageDialog(null, str);
 	}
