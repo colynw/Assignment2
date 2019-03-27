@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Account {
 	private int id;
@@ -35,17 +36,19 @@ public class Account {
 		this.balance = 0.0;
 	}
 	
-	Account(int id, String name, char type, double blance) {
+	Account(int id, String name, char type, double balance) {
 		this.id = id;
 		this.strName = name;
 		this.accountType = type;
-		this.balance = blance;
+		this.balance = balance;
 	}
 	
+	//withdraw
 	public void debit(double amount) {
 		
 	}
 	
+	//deposit
 	public void credit(double amount) {
 		
 	}
@@ -54,7 +57,11 @@ public class Account {
 		
 	}
 	
-	public static void displayAll() {
-		
+	public static void displayAll(Account[] arr) {
+		String str = "";
+		for (int i=0;i<arr.length;i++) {
+			str += arr[i].getName() + " " +arr[i].getAccountType() + " " +arr[i].getBalance() + "\n";
+		}
+		JOptionPane.showMessageDialog(null, str);
 	}
  }

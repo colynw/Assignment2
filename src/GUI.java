@@ -1,5 +1,7 @@
 import java.awt.FlowLayout;
 import java.awt.event.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.*;
 
@@ -83,7 +85,11 @@ public class GUI extends JFrame{
 	}
 	
 	private void deleteByID() {
-		
+		if(isNumeric(tf1.getText())) {
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "Please input ID, it should be a number.");
+		}
 	}
 	
 	private void deleteByName() {
@@ -91,10 +97,15 @@ public class GUI extends JFrame{
 	}
 	
 	private void displayAll(SavingAccount[] arr) {
-		String str = "";
-		for (int i=0;i<arr.length;i++) {
-			str += arr[i].getName() + " " +arr[i].getAccountType() + " " +arr[i].getBalance() + "\n";
-		}
-		JOptionPane.showMessageDialog(null, str);
+		Account.displayAll(arr);
+	}
+	
+	public boolean isNumeric(String str){
+        Pattern pattern = Pattern.compile("[0-9]*");
+        Matcher isNum = pattern.matcher(str);
+        if( !isNum.matches() ){
+            return false;
+        }
+        return true;
 	}
 }
